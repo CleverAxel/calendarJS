@@ -1,3 +1,8 @@
+:root{
+    --size-case : 40px;
+    --font-size-number : 15px;
+}
+
 html{
     box-sizing: border-box;
 }
@@ -10,7 +15,13 @@ body{
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.containerCalendar{
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .calendar{
+    flex-shrink: 0;
     padding: 0;
     margin: 0;
     border-collapse: collapse;
@@ -20,14 +31,31 @@ body{
 .calendar tr{
     border-collapse: collapse;
     font-weight: normal;
+    padding: 0;
 }
 
 .calendar td{
-    vertical-align: middle;
+    padding: 0;
     text-align: center;
-    font-size: 10px;
-    width: 30px;
-    height: 30px;
+    font-size: 15px;
+    width: var(--size-case);
+    height: var(--size-case);
 }
 
+.calendar .holiday{
+    background-color: rgb(85, 157, 250);
+}
 
+.calendar .today{
+    position: relative;
+}
+
+.calendar .today::after{
+    content: "";
+    inset: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid red;
+    border-radius: 50%;
+}
